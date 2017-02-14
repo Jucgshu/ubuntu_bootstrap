@@ -7,7 +7,7 @@ apt-get update &&  apt-get upgrade -y
 # install pip, virtualenv and nodejs an npm
 apt-get install -y python-pip python-virtualenv nodejs npm htop iotop
 pip install --upgrade --user boto3 aws-shell httpie awscli chalice requests
-apt-get install -y python3.5# this one is done AFTER the installation of virtualenv !
+apt-get install -y python3.5 # this one is done AFTER the installation of virtualenv !
 
 # Virtualenv bootstrap
 echo 'export WORKON_HOME=~/.virtualenvs' >> ~/.bashrc
