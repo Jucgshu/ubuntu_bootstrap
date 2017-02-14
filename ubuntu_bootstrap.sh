@@ -7,11 +7,12 @@ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 apt-get update &&  apt-get upgrade -y
 
 # install pip, virtualenv and nodejs an npm
-apt-get install -y python-pip python-virtualenv nodejs npm htop iotop
+apt-get install -y python-pip python-virtualenv nodejs npm htop iotop virtualenvwrapper
 pip install --upgrade --user boto3 aws-shell httpie awscli chalice requests
 apt-get install -y python3.5 # this one is done AFTER the installation of virtualenv !
 
 # Virtualenv bootstrap
+touch ~./bashrc
 echo 'export WORKON_HOME=~/.virtualenvs' >> ~/.bashrc
 echo  'mkdir -p $WORKON_HOME' >> ~/.bashrc
 echo  'source ~/.local/bin/virtualenvwrapper.sh' >> ~./bashrc
@@ -19,7 +20,7 @@ source ~/.bashrc #recharge bashrc
 
 # Virtualenv creation
 virtualenv p27 -p /usr/bin/python2.7
-virtualenv p35 -p /usr/bin/python35
+virtualenv p35 -p /usr/bin/python3.5
 
 # Install framework serverless
 npm install -g serverless
