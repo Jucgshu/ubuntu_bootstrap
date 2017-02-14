@@ -38,3 +38,10 @@ wget https://releases.hashicorp.com/packer/0.12.2/packer_0.12.2_linux_amd64.zip
 unzip packer_0.12.2_linux_amd64.zip
 rm packer_0.12.2_linux_amd64.zip
 export PATH=$PATH:~/hashicorp/packer
+
+# Install Atom
+cd
+https://atom.io/download/deb
+dpkg -i atom-amd64.deb
+apt-get -f install
+rm atom-amd64.deb
