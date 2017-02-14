@@ -1,5 +1,7 @@
-add-apt-repository ppa:fkrull/deadsnakes -y # add deadsnakes repository for python version
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - # add nodejs repository
+# add deadsnakes repository for python version
+add-apt-repository ppa:fkrull/deadsnakes -y
+# add nodejs repository
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
 # update /upgrade
 apt-get update &&  apt-get upgrade -y
@@ -41,7 +43,7 @@ export PATH=$PATH:~/hashicorp/packer
 
 # Install Atom
 cd
-https://atom.io/download/deb
+wget https://atom.io/download/deb
 dpkg -i atom-amd64.deb
 apt-get -f install
 rm atom-amd64.deb
