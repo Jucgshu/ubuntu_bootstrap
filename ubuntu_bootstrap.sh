@@ -1,22 +1,16 @@
-#dpkg --configure -a
-
-# add deadsnakes repository for python version
-add-apt-repository ppa:fkrull/deadsnakes -y
+# this script must be run usin 'sudo -H ubuntu_bootstrap.sh'
 # add nodejs repository
+apt-get install curl
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
-# update /upgrade
-apt-get update &&  apt-get upgrade -y
-
 # install pip, virtualenv and nodejs an npm
-apt-get install -y python-pip python-virtualenv nodejs npm htop iotop virtualenvwrapper
+apt-get install -fy python-pip python-virtualenv nodejs htop iotop virtualenvwrapper git
 pip install --upgrade --user boto3 aws-shell httpie awscli chalice requests
-apt-get install -y python3.5 # this one is done AFTER the installation of virtualenv !
 
 # Virtualenv bootstrap
 echo 'export WORKON_HOME=~/.virtualenvs' >> ~/.bashrc
 echo  'mkdir -p $WORKON_HOME' >> ~/.bashrc
-echo  'source ~/.local/bin/virtualenvwrapper.sh' >> ~./bashrc
+echo  'source /usr/share/virtualenvwrapper/virtualenvwrapper.sh' >> ~/.bashrc
 source ~/.bashrc #recharge bashrc
 
 # Virtualenv creation
@@ -46,6 +40,6 @@ export PATH=$PATH:~/hashicorp/packer
 # Install Atom
 cd
 wget https://atom.io/download/deb
-dpkg -i atom-amd64.deb
+dpkg -i deb
 apt-get -f install
-rm atom-amd64.deb
+rm deb
