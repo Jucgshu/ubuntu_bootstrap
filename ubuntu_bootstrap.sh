@@ -1,3 +1,5 @@
+#dpkg --configure -a
+
 # add deadsnakes repository for python version
 add-apt-repository ppa:fkrull/deadsnakes -y
 # add nodejs repository
