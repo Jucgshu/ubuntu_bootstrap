@@ -1,10 +1,11 @@
-# this script must be run usin 'sudo -H ubuntu_bootstrap.sh'
+# this script must be run usin 'sudo -H ./ubuntu_bootstrap.sh'
+
 # add nodejs repository
 apt-get install curl
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
 # install pip, virtualenv and nodejs an npm
-apt-get install -fy python-pip python-virtualenv nodejs htop iotop virtualenvwrapper git
+apt-get install -fy python-pip python-virtualenv nodejs htop iotop virtualenvwrapper git keepassx remmina putty mysql-workbench
 pip install --upgrade --user boto3 aws-shell httpie awscli chalice requests
 
 # Virtualenv bootstrap
@@ -43,3 +44,19 @@ wget https://atom.io/download/deb
 dpkg -i deb
 apt-get -f install
 rm deb
+# Virtual box
+wget -q -O- http://download.virtualbox.org/virtualbox/debian/oracle_vbox_2016.asc | sudo apt-key add -
+apt-get update
+apt-get install -yf virtualbox-5.1
+sudo usermod -G vboxusers -a $USER
+
+# Chrome
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
+apt-get install -y google-chrome-stable
+
+# Skype
+wget https://www.skype.com/en/download-skype/skype-for-linux/downloading-web/?type=weblinux-deb
+dpkg -i skypeforlinux-64-alpha.deb
+apt-get -f install
+rm skypeforlinux-64-alpha.deb
