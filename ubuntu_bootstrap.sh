@@ -3,7 +3,7 @@
 apt-get install curl
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
-# install pip, virtualenv and nodejs an npm
+# install pip, virtualenv etc...
 apt-get install -fy python-pip python-virtualenv nodejs htop iotop virtualenvwrapper git
 pip install --upgrade --user boto3 aws-shell httpie awscli chalice requests
 
