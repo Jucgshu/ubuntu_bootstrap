@@ -12,7 +12,6 @@ pip install --upgrade --user boto3 aws-shell httpie awscli chalice requests
 apt-get install -y python3.5 # this one is done AFTER the installation of virtualenv !
 
 # Virtualenv bootstrap
-touch ~./bashrc
 echo 'export WORKON_HOME=~/.virtualenvs' >> ~/.bashrc
 echo  'mkdir -p $WORKON_HOME' >> ~/.bashrc
 echo  'source ~/.local/bin/virtualenvwrapper.sh' >> ~./bashrc
