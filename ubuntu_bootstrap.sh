@@ -44,19 +44,15 @@ wget https://atom.io/download/deb
 dpkg -i deb
 apt-get -f install
 rm deb
+
 # Virtual box
 wget -q -O- http://download.virtualbox.org/virtualbox/debian/oracle_vbox_2016.asc | sudo apt-key add -
+echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
 apt-get update
-apt-get install -yf virtualbox-5.1
+apt-get install -y virtualbox-5.1
 sudo usermod -G vboxusers -a $USER
 
 # Chrome
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
+sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
 apt-get install -y google-chrome-stable
-
-# Skype
-wget https://www.skype.com/en/download-skype/skype-for-linux/downloading-web/?type=weblinux-deb
-dpkg -i skypeforlinux-64-alpha.deb
-apt-get -f install
-rm skypeforlinux-64-alpha.deb
