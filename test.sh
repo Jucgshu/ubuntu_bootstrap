@@ -39,12 +39,6 @@ mkdir -p "$HOME/.local/share/gnome-shell/extensions/remmina-search-provider@alex
 unzip /tmp/extension.zip -d "$HOME/.local/share/gnome-shell/remmina-search-provider@alexmurray.github.com"
 rm /tmp/extension.zip
 
-# Install "Remmina search provider"
-wget -O /tmp/extension.zip "https://extensions.gnome.org/download-extension/remmina-search-provider@alexmurray.github.com.shell-extension.zip?version_tag=6211"
-mkdir -p "$HOME/.local/share/gnome-shell/extensions/remmina-search-provider@alexmurray.github.com"
-unzip /tmp/extension.zip -d "$HOME/.local/share/gnome-shell/remmina-search-provider@alexmurray.github.com"
-rm /tmp/extension.zip
-
 # Removable drive menu"
 wget -O /tmp/extension.zip "https://extensions.gnome.org/download-extension/drive-menu@gnome-shell-extensions.gcampax.github.com.shell-extension.zip?version_tag=5759"
 mkdir -p "$HOME/.local/share/gnome-shell/extensions/drive-menu@gnome-shell-extensions.gcampax.github.com"
