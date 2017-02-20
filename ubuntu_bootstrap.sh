@@ -5,7 +5,7 @@ apt-get install curl
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
 # install pip, virtualenv and nodejs an npm
-apt-get install -fy python-pip python-virtualenv nodejs htop iotop virtualenvwrapper git keepassx remmina putty mysql-workbench variety
+apt-get install -fy python-pip python-virtualenv nodejs htop iotop virtualenvwrapper git keepass2 remmina putty mysql-workbench variety
 pip install --upgrade --user boto3 aws-shell httpie awscli chalice requests
 
 # Virtualenv bootstrap
