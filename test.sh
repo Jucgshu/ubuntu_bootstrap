@@ -28,7 +28,6 @@ unzip /tmp/extension.zip -d "$HOME/.local/share/gnome-shell/extensions/nohotcorn
 rm /tmp/extension.zip
 
 # Install "Places status indicator"
-wget -O /tmp/extension.zip "https://extensions.gnome.org/download-extension/places-menu@gnome-shell-extensions.gcampax.github.com.shell-extension.zip?version_tag=5763"
 mkdir -p "$HOME/.local/share/gnome-shell/extensions/places-menu@gnome-shell-extensions.gcampax.github.com"
 unzip /tmp/extension.zip -d "$HOME/.local/share/gnome-shell/places-menu@gnome-shell-extensions.gcampax.github.com"
 rm /tmp/extension.zip

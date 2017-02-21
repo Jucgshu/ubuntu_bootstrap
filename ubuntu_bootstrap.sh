@@ -51,7 +51,7 @@ echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) co
 apt-get update
 apt-get install -y virtualbox-5.1
 sudo usermod -G vboxusers -a $USER
-/sbin/vboxconfig
+# must be run as root :/    /sbin/vboxconfig
 
 # Chrome
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
