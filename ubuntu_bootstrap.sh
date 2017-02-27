@@ -15,8 +15,8 @@ echo  'source /usr/share/virtualenvwrapper/virtualenvwrapper.sh' >> ~/.bashrc
 source ~/.bashrc #recharge bashrc
 
 # Virtualenv creation
-virtualenv p27 -p /usr/bin/python2.7
-virtualenv p35 -p /usr/bin/python3.5
+mkvirtualenv p27 -p /usr/bin/python2.7
+mkvirtualenv p35 -p /usr/bin/python3.5
 
 # Install framework serverless
 npm install -g serverless
