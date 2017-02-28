@@ -18,6 +18,13 @@ source ~/.bashrc #recharge bashrc
 mkvirtualenv p27 -p /usr/bin/python2.7
 mkvirtualenv p35 -p /usr/bin/python3.5
 
+# Install python library
+lib=$(pip install boto3 aws-shell httpie awscli chalice requests autopep8)
+workon p27
+echo $lib
+workon p35
+echo $lib
+
 # Install framework serverless
 npm install -g serverless
 
