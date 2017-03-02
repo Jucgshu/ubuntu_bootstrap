@@ -1,8 +1,8 @@
 # ubuntu_bootstrap
-This script  automatized the installation of my tools on a fresh ubuntu installation
+This script automates the installation of my tools on a fresh Ubuntu installation.
 
-It currently installed about 25 app/library.
+It currently installs about 25 apps/libraries.
 
-It has been tested on fresh & update Ubuntu 16.10 (Gnome3 Flavor)
+It has been tested on a fresh & updated Ubuntu 16.10 (Gnome3 Flavor)
 
-sudo -H ./ubuntu_bootstrap.sh 2>error
+To install, just run ```sudo -H ./ubuntu_bootstrap.sh 2>error```
