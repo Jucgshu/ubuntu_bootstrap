@@ -8,7 +8,7 @@ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 apt-get install -fy python-pip python-virtualenv nodejs htop iotop git jq keepass2 remmina putty mysql-workbench variety virtualenvwrapper
 
 # install virtualenvwrapper
--pip install --user virtualenvwrapper
+pip install --user virtualenvwrapper
 
 # Virtualenvwrapper bootstrap
 echo 'export WORKON_HOME=~/.virtualenvs' >> ~/.bashrc
