@@ -31,17 +31,17 @@ echo $lib
 #apt-get install -fy nodejs
 #npm install -g serverless
 
-# Create hashicorp folder
+# Install hashicorp tools
 #mkdir ~/hashicorp ~/hashicorp/terraform ~/hashicorp/packer
-
-# Install terraform
 #cd ~/hashicorp/terraform
+
+# terraform
 #wget https://releases.hashicorp.com/terraform/0.8.6/terraform_0.8.6_linux_amd64.zip
 #unzip terraform_0.8.6_linux_amd64.zip
 #rm terraform_0.8.6_linux_amd64.zip
 #export PATH=$PATH:~/hashicorp/terraform
 
-# Install packer
+# packer
 #cd ~/hashicorp/packer
 #wget https://releases.hashicorp.com/packer/0.12.2/packer_0.12.2_linux_amd64.zip
 #unzip packer_0.12.2_linux_amd64.zip
@@ -63,7 +63,7 @@ rm deb
 #sudo usermod -G vboxusers -a $USER
 # must be run as root :/    /sbin/vboxconfig
 
-# Chrome
+# Chrome (only works on 64bits architecture)
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
 apt-get update
@@ -79,7 +79,6 @@ chmod 400 ~/.ssh/id_rsa
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 fi
-
 
 # Add beautysh
 # add gnome firefox extension
