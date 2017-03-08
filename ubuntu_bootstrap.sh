@@ -11,7 +11,7 @@ apt-get install -fy python-pip python-virtualenv nodejs htop iotop virtualenvwra
 echo 'export WORKON_HOME=~/.virtualenvs' >> ~/.bashrc
 echo  'mkdir -p $WORKON_HOME' >> ~/.bashrc
 echo  'source /usr/share/virtualenvwrapper/virtualenvwrapper.sh' >> ~/.bashrc
-source ~/.bashrc #recharge bashrc
+exec "$BASH" #reload bashrc
 
 # Virtualenv creation
 mkvirtualenv p27 -p /usr/bin/python2.7
