@@ -14,7 +14,7 @@ pip install --user virtualenvwrapper
 echo 'export WORKON_HOME=~/.virtualenvs' >> ~/.bashrc
 echo 'mkdir -p $WORKON_HOME' >> ~/.bashrc
 echo 'source /usr/share/virtualenvwrapper/virtualenvwrapper.sh' >> ~/.bashrc
-source ~/.bashrc " #reload bashrc
+source ~/.bashrc #reload bashrc
 
 # Virtualenv creation
 mkvirtualenv p27 -p /usr/bin/python2.7
