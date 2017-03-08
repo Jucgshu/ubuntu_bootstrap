@@ -5,7 +5,7 @@ apt-get install curl
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
 # install pip, virtualenv and nodejs an npm
-apt-get install -fy python-pip python-virtualenv nodejs htop iotop git jq keepass2 remmina putty mysql-workbench variety
+apt-get install -fy python-pip python-virtualenv htop iotop git jq keepass2 remmina putty mysql-workbench variety
 
 # install virtualenvwrapper
 pip install virtualenvwrapper
@@ -28,24 +28,25 @@ workon p35
 echo $lib
 
 # Install framework serverless
-npm install -g serverless
+#apt-get install -fy nodejs
+#npm install -g serverless
 
 # Create hashicorp folder
-mkdir ~/hashicorp ~/hashicorp/terraform ~/hashicorp/packer
+#mkdir ~/hashicorp ~/hashicorp/terraform ~/hashicorp/packer
 
 # Install terraform
-cd ~/hashicorp/terraform
-wget https://releases.hashicorp.com/terraform/0.8.6/terraform_0.8.6_linux_amd64.zip
-unzip terraform_0.8.6_linux_amd64.zip
-rm terraform_0.8.6_linux_amd64.zip
-export PATH=$PATH:~/hashicorp/terraform
+#cd ~/hashicorp/terraform
+#wget https://releases.hashicorp.com/terraform/0.8.6/terraform_0.8.6_linux_amd64.zip
+#unzip terraform_0.8.6_linux_amd64.zip
+#rm terraform_0.8.6_linux_amd64.zip
+#export PATH=$PATH:~/hashicorp/terraform
 
 # Install packer
-cd ~/hashicorp/packer
-wget https://releases.hashicorp.com/packer/0.12.2/packer_0.12.2_linux_amd64.zip
-unzip packer_0.12.2_linux_amd64.zip
-rm packer_0.12.2_linux_amd64.zip
-export PATH=$PATH:~/hashicorp/packer
+#cd ~/hashicorp/packer
+#wget https://releases.hashicorp.com/packer/0.12.2/packer_0.12.2_linux_amd64.zip
+#unzip packer_0.12.2_linux_amd64.zip
+#rm packer_0.12.2_linux_amd64.zip
+#export PATH=$PATH:~/hashicorp/packer
 
 # Install Atom
 cd
@@ -55,11 +56,11 @@ apt-get -f install
 rm deb
 
 # Virtual box
-wget -q -O- http://download.virtualbox.org/virtualbox/debian/oracle_vbox_2016.asc | sudo apt-key add -
-echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
-apt-get update
-apt-get install -y virtualbox-5.1
-sudo usermod -G vboxusers -a $USER
+#wget -q -O- http://download.virtualbox.org/virtualbox/debian/oracle_vbox_2016.asc | sudo apt-key add -
+#echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+#apt-get update
+#apt-get install -y virtualbox-5.1
+#sudo usermod -G vboxusers -a $USER
 # must be run as root :/    /sbin/vboxconfig
 
 # Chrome
