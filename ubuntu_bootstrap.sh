@@ -72,3 +72,15 @@ apt-get install -y google-chrome-stable
 # Git config
 git config --global user.name "Richard Devers"
 git config --global user.email "ritchiedev@hotmail.com"
+
+# Add ssh key if exist
+if [ -f ~/.ssh/id_rsa ]; then
+chmod 400 ~/.ssh/id_rsa
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+fi
+
+
+# Add beautysh
+# add gnome firefox extension
+# add gnome extension
