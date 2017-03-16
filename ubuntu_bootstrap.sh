@@ -1,4 +1,7 @@
+#!/bin/bash
 # this script must be run usin 'sudo -H ./ubuntu_bootstrap.sh'
+# to do before: Add the ssh key to /home/$my_user/.ssh/
+my_user=rd
 
 # add nodejs repository
 apt-get install curl
@@ -11,25 +14,20 @@ apt-get install -fy python-pip python-virtualenv htop iotop git jq keepass2 remm
 pip install virtualenvwrapper
 
 # Virtualenvwrapper bootstrap
-echo 'export WORKON_HOME=~/.virtualenvs' >> ~/.bashrc
-echo 'mkdir -p $WORKON_HOME' >> ~/.bashrc
-echo 'source /usr/local/bin/virtualenvwrapper.sh' >> ~/.bashrc
-source ~/.bashrc #reload bashrc
+runuser -l $my_user -c 'echo 'export WORKON_HOME=~/.virtualenvs' >> ~/.bashrc'
+runuser -l $my_user -c 'echo 'mkdir -p $WORKON_HOME' >> ~/.bashrc'
+runuser -l $my_user -c 'echo 'source /usr/local/bin/virtualenvwrapper.sh' >> ~/.bashrc'
+runuser -l $my_user -c '~/.bashrc'
 
 # Virtualenv creation
-mkvirtualenv p27 -p /usr/bin/python2.7
-mkvirtualenv p35 -p /usr/bin/python3.5
+runuser -l $my_user -c 'mkvirtualenv p27 -p /usr/bin/python2.7'
+runuser -l $my_user -c 'mkvirtualenv p35 -p /usr/bin/python3.5'
 
 # Install python library
-lib=$(pip install boto3 aws-shell httpie awscli chalice requests autopep8)
-workon p27
-echo $lib
-workon p35
-echo $lib
-
-# Install framework serverless
-#apt-get install -fy nodejs
-#npm install -g serverless
+runuser -l $my_user -c 'workon p27'
+runuser -l $my_user -c 'pip install boto3 aws-shell httpie awscli chalice requests autopep8'
+runuser -l $my_user -c 'workon p35'
+runuser -l $my_user -c 'pip install boto3 aws-shell httpie awscli chalice requests autopep8'
 
 # Install hashicorp tools
 #mkdir ~/hashicorp ~/hashicorp/terraform ~/hashicorp/packer
@@ -70,16 +68,35 @@ apt-get update
 apt-get install -y google-chrome-stable
 
 # Git config
-git config --global user.name "Richard Devers"
-git config --global user.email "ritchiedev@hotmail.com"
+runuser -l $my_user -c 'git config --global user.name "Richard Devers"'
+runuser -l $my_user -c 'git config --global user.email "ritchiedev@hotmail.com"'
 
 # Add ssh key if exist
-if [ -f ~/.ssh/id_rsa ]; then
-chmod 400 ~/.ssh/id_rsa
+if [ -f /home/$my_user/.ssh/id_rsa ]; then
+chmod 400 /home/$my_user/.ssh/id_rsa
 eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa
+ssh-add /home/$my_user/.ssh/id_rsa
 fi
 
-# Add beautysh
-# add gnome firefox extension
-# add gnome extension
+# Add gnome extension
+full_version=$(cat /usr/share/gnome/gnome-version.xml)
+major_version=$(echo $full_version | grep -oPm1 "(?<=<platform>)[^<]+")
+minor_version=$(echo $full_version | grep -oPm1 "(?<=<minor>)[^<]+")
+micro_version=$(echo $full_version | grep -oPm1 "(?<=<micro>)[^<]+")
+minor_version=${minor_version::-1}
+total_version=$major_version.$minor_version$micro_version
+echo $major_version
+echo $minor_version
+echo $total_version
+
+my_user=rd
+wget -O gnome-shell-extension-installer "https://github.com/ianbrunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
+chmod +x gnome-shell-extension-installer
+mv gnome-shell-extension-installer /usr/bin/
+
+runuser -l $my_user -c 'gnome-shell-extension-installer 1007 $total_version --yes'
+runuser -l $my_user -c 'gnome-shell-extension-installer 442 $total_version --yes'
+runuser -l $my_user -c 'gnome-shell-extension-installer 118 $total_version --yes'
+runuser -l $my_user -c 'gnome-shell-extension-installer 8 $total_version --yes'
+runuser -l $my_user -c 'gnome-shell-extension-installer 473 $total_version --yes'
+runuser -l $my_user -c 'gnome-shell-extension-installer 7 $total_version --yes'
