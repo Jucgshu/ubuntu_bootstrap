@@ -1,7 +1,8 @@
 #!/bin/bash
-# this script must be run usin 'sudo -H ./ubuntu_bootstrap.sh'
-# to do before: Add the ssh key to /home/$my_user/.ssh/
-# set the user login in my_user
+# works only for x64 environment
+# this script must be run using 'sudo -H ./ubuntu_bootstrap.sh'
+# to do before: add the ssh key to /home/$my_user/.ssh/
+# to do before: set the user login in my_user
 my_user=rd
 
 # add nodejs repository
@@ -55,12 +56,12 @@ apt-get -f install
 rm deb
 
 # Virtual box
-#wget -q -O- http://download.virtualbox.org/virtualbox/debian/oracle_vbox_2016.asc | sudo apt-key add -
-#echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
-#apt-get update
-#apt-get install -y virtualbox-5.1
-#sudo usermod -G vboxusers -a $USER
-# must be run as root :/    /sbin/vboxconfig
+wget -q -O- http://download.virtualbox.org/virtualbox/debian/oracle_vbox_2016.asc | sudo apt-key add -
+echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+apt-get update
+apt-get install -y virtualbox-5.1
+sudo usermod -G vboxusers -a $my_user
+/sbin/vboxconfig
 
 # Chrome (only works on 64bits architecture)
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
