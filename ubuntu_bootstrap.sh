@@ -1,11 +1,12 @@
 #!/bin/bash
 # this script must be run usin 'sudo -H ./ubuntu_bootstrap.sh'
 # to do before: Add the ssh key to /home/$my_user/.ssh/
+# set the user login in my_user
 my_user=rd
 
 # add nodejs repository
-apt-get install curl
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+# apt-get install curl
+# curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
 # install pip, virtualenv and nodejs an npm
 apt-get install -fy python-pip python-virtualenv htop iotop git jq keepass2 remmina putty mysql-workbench variety
@@ -89,7 +90,6 @@ echo $major_version
 echo $minor_version
 echo $total_version
 
-my_user=rd
 wget -O gnome-shell-extension-installer "https://github.com/ianbrunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
 chmod +x gnome-shell-extension-installer
 mv gnome-shell-extension-installer /usr/bin/
