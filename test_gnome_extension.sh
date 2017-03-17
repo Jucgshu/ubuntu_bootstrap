@@ -11,7 +11,6 @@ echo $major_version
 echo $minor_version
 echo $total_version
 
-my_user=rd
 wget -O gnome-shell-extension-installer "https://github.com/ianbrunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
 chmod +x gnome-shell-extension-installer
 mv gnome-shell-extension-installer /usr/bin/
